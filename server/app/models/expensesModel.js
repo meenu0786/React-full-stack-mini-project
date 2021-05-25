@@ -11,7 +11,7 @@ const expensesSchema = {
     primaryKey: true,
     autoIncrement: true,
   },
-  category_id: {
+  cat_id: {
     type: Sequelize.INTEGER(11),
     require: true,
     allowNull: false,
@@ -29,6 +29,11 @@ const expensesSchema = {
       key: "id",
     },
   },
+  date: {
+    type: Sequelize.DATE,
+    require: true,
+    allowNull: false,
+  },
   title: {
     type: Sequelize.STRING,
     require: true,
@@ -36,7 +41,7 @@ const expensesSchema = {
     allowNull: false,
   },
   value: {
-    type: Sequelize.STRING,
+    type: Sequelize.NUMBER,
     require: true,
     allowNull: false,
   },
