@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 require("dotenv").config();
+const db = require("./app/db/db");
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.listen(PORT, () => {
+  db.sync({ alert: true });
   console.log(`server is runing on Port ${PORT}`);
 });
