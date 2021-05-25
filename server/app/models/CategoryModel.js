@@ -1,32 +1,27 @@
 const db = require("../db/db");
 const Sequelize = require("sequelize");
 
-//**User model start */
+//**categories model start */
 
-const userSchema = {
+const catSchema = {
   id: {
     type: Sequelize.INTEGER(11),
     primaryKey: true,
     autoIncrement: true,
   },
-  name: {
-    type: Sequelize.STRING,
-    require: true,
-    allowNull: false,
-  },
-  email: {
+  title: {
     type: Sequelize.STRING,
     require: true,
     unique: true,
     allowNull: false,
   },
-  password: {
+  description: {
     type: Sequelize.STRING,
     require: true,
     allowNull: false,
   },
 };
 
-exports.UserModel = db.define("users", userSchema);
+exports.CatModel = db.define("categories", catSchema);
 
-//**User model end */
+//**categories model end */
