@@ -37,7 +37,6 @@ const expensesSchema = {
   title: {
     type: Sequelize.STRING,
     require: true,
-    unique: true,
     allowNull: false,
   },
   value: {

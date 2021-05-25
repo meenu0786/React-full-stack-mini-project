@@ -30,6 +30,7 @@ router.delete(
   ExpensesController.delete
 );
 router.get("/expenses", authenticateToken, ExpensesController.list);
+router.get("/report", authenticateToken, ExpensesController.report);
 
 //**expenses route end */
 module.exports = router;
