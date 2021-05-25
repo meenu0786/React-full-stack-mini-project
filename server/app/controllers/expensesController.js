@@ -1,3 +1,4 @@
+const { CatModel } = require("../models/CategoryModel");
 const { expensesModel } = require("../models/expensesModel");
 
 exports.add = (req, res) => {
@@ -60,4 +61,25 @@ exports.delete = async (req, res) => {
     .catch((err) => {
       res.sendStatus(400);
     });
+};
+
+exports.list = (req, res) => {
+  const { user_id } = req.body;
+
+  CatModel.hasOne(expensesModel, { foreignKey: "id" });
+  expensesModel.belongsTo(CatModel, { foreignKey: "cat_id" });
+
+  expensesModel
+    .findAll({
+      where: { user_id },
+      include: [CatModel],
+    })
+    .then((exp) =>
+      res.send({
+        status: 1,
+        message: "success",
+        data: exp,
+      })
+    )
+    .catch((err) => res.status(400).send(err));
 };

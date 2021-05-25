@@ -29,6 +29,7 @@ router.delete(
   authenticateToken,
   ExpensesController.delete
 );
+router.get("/expenses", authenticateToken, ExpensesController.list);
 
 //**expenses route end */
 module.exports = router;
