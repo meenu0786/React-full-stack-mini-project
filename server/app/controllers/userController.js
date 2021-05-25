@@ -47,7 +47,7 @@ exports.login = async (req, res) => {
           .compare(password.trim(), user.password)
           .then(async (result) => {
             if (result) {
-              const token = await generateAccessToken();
+              const token = await generateAccessToken(user.id);
               res.send({
                 status: 1,
                 message: "success",
