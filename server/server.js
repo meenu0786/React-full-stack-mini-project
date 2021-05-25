@@ -17,6 +17,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+app.use("/api", require("./app/routers/router"));
+
 app.listen(PORT, () => {
   db.sync({ alert: true });
   console.log(`server is runing on Port ${PORT}`);
