@@ -1,3 +1,9 @@
+import {
+  USERS_LOGIN_REQUEST,
+  USERS_LOGOUT_REQUEST,
+  USERS_LOGOUT_ERROR,
+} from "./type";
+
 const initialState = {
   token: null,
   name: null,
@@ -7,14 +13,23 @@ const initialState = {
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "LOGIN": {
+    case "USERS_LOGIN_REQUEST": {
       return {
         ...state,
         token: action.payload.token,
-        name: action.payload.token,
+        name: action.payload.name,
       };
     }
-    case "LOGOUT": {
+    case "USERS_LOGOUT_ERROR": {
+      return {
+        ...state,
+        token: null,
+        name: null,
+        lodaer: false,
+        error: true,
+      };
+    }
+    case "USERS_LOGOUT_ERROR": {
       return {
         ...state,
         token: null,

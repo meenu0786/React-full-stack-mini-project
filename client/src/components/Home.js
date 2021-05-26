@@ -1,9 +1,24 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
+  const history = useHistory();
+
   return (
     <>
-      <h1>hello</h1>
+      <div></div>
+      <div>
+        <div>
+          <button onClick={() => history.push("/add-expense")}>
+            Add-expense
+          </button>
+        </div>
+        <div>
+          <button onClick={() => history.push("/add-category")}>
+            Add-category
+          </button>
+        </div>
+      </div>
     </>
   );
 };

@@ -6,7 +6,6 @@ const { generateAccessToken } = require("../auth/auth");
 
 exports.sign_up = async (req, res) => {
   const { password, email, name } = req.body;
-
   await bcrypt
 
     .hash(password, parseInt(process.env.SALTROUNDS))
@@ -16,7 +15,7 @@ exports.sign_up = async (req, res) => {
         email,
         password: hash,
       })
-        .then((data) => {
+        .then((user) => {
           res.send({
             status: 1,
             message: "success",
